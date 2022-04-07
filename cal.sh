@@ -2,8 +2,10 @@
 # 2022-03-31
 # Song Hyegyeong
 
-num1=$(<num1.txt)
-num2=$(<num2.txt)
+declare -a num
+
+num[0]=$(<num1.txt)
+num[1]=$(<num2.txt)
 
 if [ "$#" == 0 ]; then
    echo "...none operator parameter..."
@@ -17,19 +19,19 @@ fi
 
 case $1 in
   1) op="add" 
-     let res=$num1+$num2;;
+     let res=${num[0]}+${num[1]};;
   2) op="sub"
-     let res=$num1-$num2;;
+     let res=${num[0]}-${num[1]};;
   3) op="div"
-     let res=$num1/$num2;;
+     let res=${num[0]}/${num[1]};;
   4) op="mul"
-     let res=$num1*$num2;;
+     let res=${num[0]}*${num[1]};;
   *) exit 0;;
 esac
 
 echo ""
-echo "num1 : $num1"
-echo "num2 : $num2"
+echo "num1 : ${num[0]}"
+echo "num2 : ${num[1]}"
 echo "op : $op"
 echo "result : $res"
 
