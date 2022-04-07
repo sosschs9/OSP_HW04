@@ -1,7 +1,7 @@
 #!/bin/bash
 # 2022-03-31
 # Song Hyegyeong
-
+echo "project management in github"
 declare -a num
 
 num[0]=$(<num1.txt)
